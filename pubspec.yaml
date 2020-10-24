@@ -26,6 +26,7 @@ dependencies:
   bloc: ^6.0.1
   equatable: ^1.2.3
   flutter_bloc: ^6.0.1
+  hydrated_bloc: ^6.0.2
   fluro: "^1.6.2" # For navigation
 
   # The following adds the Cupertino Icons font to your application.

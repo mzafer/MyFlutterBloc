@@ -1,9 +1,11 @@
 
+import 'package:MyFlutterBloc/item/bloc/items_bloc.dart';
 import 'package:MyFlutterBloc/screens/Home.dart';
 import 'package:MyFlutterBloc/screens/SignIn.dart';
 import 'package:MyFlutterBloc/screens/Start.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Routes {
   
@@ -28,7 +30,19 @@ class Routes {
 
     router.define("/home", handler: Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-      return Home();
+        return BlocProvider.value(
+          value: getItemsBloc(),
+          child: Home());      
     })); 
   }
+
+  static ItemsBloc _itemsBloc;
+  static ItemsBloc getItemsBloc(){
+    if(_itemsBloc == null) {
+      _itemsBloc = new ItemsBloc();      
+    }
+    return _itemsBloc;
+  }
+
+  
 }
